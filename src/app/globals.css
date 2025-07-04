@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components{
+  .header_top_icon_wrapper{
+    @apply bg-gray-200 rounded-md p-[6px] text-[14px] cursor-pointer hover:bg-amber-500 hover:text-white;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .navbar_link:hover{
+    color: #ff8f9c;
+    transition: all 0.4s;
+  }
+
+   .navbar_link::after{
+    position: absolute;
+    content: "";
+    background-color:#ff8f9c;
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    scale: 0;
+    transform-origin: left;
+    transition: all 0.4s;
+  }
+
+  .navbar_link:hover::after{
+    scale: 1;
+  }
 }
